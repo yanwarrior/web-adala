@@ -20,7 +20,7 @@ const mutations = {
 
 const actions = {
   initCategories(context, payload) {
-    context.state.service.getCategories()
+    context.state.service.all()
       .then(resp => {
         context.commit('setCategories', resp.data.results)
       })
