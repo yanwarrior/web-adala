@@ -4,15 +4,21 @@
       <div class="drawer">
         <a-button value="small" @click="showDrawer" icon="menu-fold"></a-button>
       </div>
-
       <div class="logo"></div>
     </a-layout-header>
 
     <a-drawer placement="left" :closable="false" width=400  @close="onClose" :visible="visible">
       <span slot="title">Navigation</span>
 
-      <strong>Categories / <a href="">more</a></strong>
-      <menucategory-partial></menucategory-partial>
+      <div id="search">
+        <strong>Seacrh / <a href="">clear</a></strong>
+        <search-partial></search-partial>
+      </div>
+      
+      <div id="categories">
+        <strong>Categories / <a href="">more</a></strong>
+        <menucategory-partial></menucategory-partial>
+      </div>
       
     </a-drawer>
 
@@ -21,12 +27,13 @@
 
 <script>
 import MenucategoryPartial from '@/components/partials/MenucategoryPartial'
-
+import SearchPartial from '@/components/partials/SearchPartial'
 
 export default {
   name: 'HeadertopPartial',
   components: {
-    'menucategory-partial': MenucategoryPartial
+    'menucategory-partial': MenucategoryPartial,
+    'search-partial': SearchPartial
   },
   data() {
     return {
@@ -51,6 +58,15 @@ export default {
   background: rgba(255,255,255,.2);
   margin: 16px 24px 16px 0;
   float: left;
+}
+
+#search {
+  margin-bottom: 10px; 
+}
+
+#search strong {
+  margin-bottom: 5px;
+  display: block;
 }
 
 #components-layout-demo-top .drawer {
